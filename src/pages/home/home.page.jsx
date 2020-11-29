@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./home.styles.css"
+import {ButtonAttention} from "../../components/button/button-attention/button-attention.component";
 
 class HomePage extends Component {
 
@@ -11,10 +12,16 @@ class HomePage extends Component {
         };
     }
 
+    handleConnectPress = () =>{
+        console.log("Button connect pressed...")
+    }
+
     render() {
         return (
             <div className="home-container">
-
+                <ButtonAttention
+                    handleOnClick={this.handleConnectPress}
+                    text="Connect with Goodreads"/>
             </div>
         );
     }

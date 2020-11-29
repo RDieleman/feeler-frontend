@@ -4,7 +4,6 @@ header{
     width: 100vw;
     min-height: 120px;
     height: 12vh;
-    position: sticky;
     border-bottom: #D4D4D4 solid 1px;
     background-color: #F9F9F9;
     display: flex;
