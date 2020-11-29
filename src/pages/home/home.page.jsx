@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import "./home.page.css";
+import "./home.styles.css"
 
-class HomeStyles extends Component {
+class HomePage extends Component {
 
     constructor(props) {
         super(props);
@@ -13,9 +13,11 @@ class HomeStyles extends Component {
 
     render() {
         return (
-            <h1>Home Page</h1>
+            <div className="home-container">
+
+            </div>
         );
     }
 }
 
-export default HomeStyles;
+export default HomePage;
