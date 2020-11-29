@@ -1,0 +1,14 @@
+.button-regular{
+    border-bottom: #7F7F7F 1px solid;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    margin-left: 12px;
+}
+
+.button-regular:hover{
+    color: #B9C1CA;
+    border-color: #B9C1CA;
+    cursor: pointer;
+    background-color: transparent;
+}
