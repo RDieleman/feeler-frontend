@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./home.page.css";
 
-class HomePage extends Component {
+class HomeStyles extends Component {
 
     constructor(props) {
         super(props);
@@ -18,4 +18,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+export default HomeStyles;
