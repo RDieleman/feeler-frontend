@@ -15,13 +15,19 @@ class App extends Component {
         this.state = {
             loading: true,
             moods: [],
-            user: undefined
+            user: undefined,
+            selectedIndex: 0
         };
     };
 
     toggleLoading = (loadingState) => {
         console.log(`Toggling loading state to ${loadingState}`);
         this.setState({loading: loadingState});
+    }
+
+    selectMood = (index) => {
+        console.log(`Mood selected: ${this.state.moods[index]}`)
+        this.setState({selectedIndex: index})
     }
 
     componentDidMount() {
@@ -56,6 +62,7 @@ class App extends Component {
                             <Route exact path="/moods/" render={(props) => <MoodPage
                                 toggleLoading={this.toggleLoading}
                                 availableMoods={this.state.moods}
+                                selectMood={this.selectMood}
                                 {...props}/>
                             }/>
                         </Switch>
