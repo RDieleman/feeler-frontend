@@ -14,6 +14,7 @@ class HomePage extends Component {
 
     handleConnectPress = () =>{
         console.log("Button connect pressed...")
+        this.props.history.push("/moods/");
     }
 
     render() {
