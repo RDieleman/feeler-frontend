@@ -1,20 +1,21 @@
 import React, {Component} from "react";
 import "./mood.styles.css";
+import {getAvailableMoods} from "../../services/api.service";
 
 class MoodPage extends Component {
-
     constructor(props) {
         super(props);
-
-        this.state = {
-
-        };
     };
 
     render() {
-        return(
+        console.log("Rendering mood page...")
+        return (
             <div className="mood-container">
-                <h1>Emotion Page</h1>
+                <ul>
+                    {this.props.availableMoods.map(m =>{
+                        return <li>{m}</li>
+                    })}
+                </ul>
             </div>
         );
     }
