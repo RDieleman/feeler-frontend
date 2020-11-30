@@ -30,6 +30,7 @@ class MoodPage extends Component {
     handleSelectClicked = () => {
         console.log("Select clicked...");
         this.props.selectMood(this.state.index);
+        this.props.history.push("/overview/");
     };
 
     render() {

@@ -22,4 +22,8 @@ export const getUser = (id) =>{
     return get('user/'+id)
 }
 
+export const getRecommendations = (mood, userId) => {
+    return get('recommendation/' + mood + '/' + userId)
+}
+
 
