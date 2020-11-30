@@ -5,7 +5,6 @@ import {SelectController} from "../../components/select-controller/select-contro
 class MoodPage extends Component {
     constructor(props) {
         super(props);
-        console.log(this);
         this.state = {
             index: 0,
             size: props.availableMoods.length

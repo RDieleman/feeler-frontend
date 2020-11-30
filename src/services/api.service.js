@@ -18,4 +18,8 @@ export const getAvailableMoods = () =>{
     return get('moods')
 }
 
+export const getUser = (id) =>{
+    return get('user/'+id)
+}
+
 

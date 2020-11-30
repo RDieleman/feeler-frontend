@@ -6,7 +6,7 @@ import MoodPage from "./pages/mood/mood.page";
 import {LoadingOverlay} from "./components/loading-overlay/loading-overlay.component";
 import {Header} from "./components/header/header.component";
 import {Footer} from "./components/footer/footer.component";
-import {getAvailableMoods} from "./services/api.service";
+import {getAvailableMoods, getUser} from "./services/api.service";
 
 class App extends Component {
     constructor(props) {
@@ -45,8 +45,15 @@ class App extends Component {
         }).finally(() => this.toggleLoading(false));
     }
 
-    connectUser = () => {
-
+    handleConnectUser = () => {
+        this.toggleLoading(true);
+        console.log("Retrieving user info...");
+        getUser("testId").then((response) =>{
+            if(response !== undefined && response.data != null){
+                console.log(response.data);
+                this.setState({user: response.data})
+            }
+        }).finally(() => this.toggleLoading(false));
     }
 
     render() {
@@ -58,7 +65,10 @@ class App extends Component {
                         <LoadingOverlay/>
                         :
                         <Switch>
-                            <Route exact path="/" component={HomePage}/>
+                            <Route exact path="/" render={(props) => <HomePage
+                                handleConnectUser={this.handleConnectUser}
+                                {...props}/>
+                            }/>
                             <Route exact path="/moods/" render={(props) => <MoodPage
                                 toggleLoading={this.toggleLoading}
                                 availableMoods={this.state.moods}
