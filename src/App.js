@@ -14,7 +14,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            loading: true,
+            isLoading: true,
             moods: undefined,
             user: undefined,
         };
@@ -22,13 +22,7 @@ class App extends Component {
 
     toggleLoading = (loadingState) => {
         console.log(`Toggling loading state to ${loadingState}`);
-        this.setState({loading: loadingState});
-    }
-
-    selectMood = (index) => {
-        console.log(`Mood selected: ${this.state.moods[index]}`)
-        this.setState({selectedIndex: index})
-        this.retrieveRecommendations();
+        this.setState({isLoading: loadingState});
     }
 
     async componentDidMount() {
@@ -50,14 +44,19 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Header menuEnabled={!this.state.loading}/>
-                    {this.state.loading ?
-                        <LoadingOverlay/>
+                    {/*Display the loading page if loading state is active*/}
+                    {(this.state.isLoading) ?
+                        <LoadingPage/>
                         :
-                        <Switch>
-                        </Switch>
+                        // Content of the application
+                        <div id="main-container" className="container-vertical">
+
+                            {/*Switch to handle routing*/}
+                            <Switch>
+
+                            </Switch>
+                        </div>
                     }
-                    <Footer/>
                 </div>
             </Router>
         );
