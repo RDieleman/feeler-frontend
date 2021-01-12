@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/*
+    All predefined global values used in the application
+ */
+:root{
+    /*Colors*/
+    --color-main-dark: #46515D;
+    --color-main-medium: #6F7F92;
+    --color-main-light: #B9C1CA;
+    --color-gen-attention:#A79576;
+    --color-gen-dark: #7F7F7F;
+    --color-gen-medium: #F5F5F5;
+    --color-gen-light: #F9F9F9;
+
+    --color-background: var(--color-gen-light);
+    --color-background-opaque: rgba(0, 0, 0, 0.7);
+
+    /*Font*/
+    --font: 'Roboto', sans-serif;
+
+    /*Layout*/
+    --border-width: 2px;
+    --border-radius: 5px;
+    --basic-height: 30pt;
+    --basic-margin: 16pt;
+}
+
+*{
+    /*Global settings*/
+    font-family: var(--font);
+    padding: 0;
+    margin: 0;
+}
+
+html, #root{
+    background-color: var(--color-background);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.App{
+    width: 100%;
+    height: 100%;
+}
