@@ -6,8 +6,8 @@ import MoodPage from "./pages/mood/mood.page";
 import {LoadingOverlay} from "./components/loading-overlay/loading-overlay.component";
 import {Header} from "./components/header/header.component";
 import {Footer} from "./components/footer/footer.component";
-import {getAvailableMoods, getRecommendations, getUser} from "./services/api.service";
 import OverviewPage from "./pages/overview/overview.page";
+import {handleGetMoods, handleGetUser} from "./services/api.service";
 
 class App extends Component {
     constructor(props) {
@@ -15,10 +15,8 @@ class App extends Component {
 
         this.state = {
             loading: true,
-            moods: [],
+            moods: undefined,
             user: undefined,
-            selectedIndex: 0,
-            recommendations: []
         };
     };
 
@@ -33,42 +31,19 @@ class App extends Component {
         this.retrieveRecommendations();
     }
 
-    componentDidMount() {
-        this.retrieveAvailableMoods();
-    }
-
-    retrieveAvailableMoods = () => {
+    async componentDidMount() {
         this.toggleLoading(true);
-        console.log("Retrieving available moods...");
-        getAvailableMoods().then((response) => {
-            if (response !== undefined && response.data != null) {
-                console.log(response.data);
-                this.setState({moods: response.data});
-            }
-        }).finally(() => this.toggleLoading(false));
-    }
+        try{
+            const user = await handleGetUser(1);
+            const moods = await handleGetMoods();
 
-    retrieveRecommendations = () =>{
-        console.log("Retrieving recommendations...");
-        this.toggleLoading(true);
-        const {moods, selectedIndex} = this.state;
-        getRecommendations(moods[selectedIndex], this.state.user.id).then((response) => {
-            if (response !== undefined && response.data != null) {
-                console.log(response.data);
-                this.setState({recommendations: response.data})
-            }
-        }).finally(() => this.toggleLoading(false));
-    }
-
-    handleConnectUser = () => {
-        this.toggleLoading(true);
-        console.log("Retrieving user info...");
-        getUser("testId").then((response) => {
-            if (response !== undefined && response.data != null) {
-                console.log(response.data);
-                this.setState({user: response.data})
-            }
-        }).finally(() => this.toggleLoading(false));
+            this.setState({
+                user: user,
+                moods: moods
+            });
+        }finally {
+            this.toggleLoading(false);
+        }
     }
 
     render() {
@@ -80,21 +55,6 @@ class App extends Component {
                         <LoadingOverlay/>
                         :
                         <Switch>
-                            <Route exact path="/" render={(props) => <HomePage
-                                handleConnectUser={this.handleConnectUser}
-                                {...props}/>
-                            }/>
-                            <Route exact path="/moods/" render={(props) => <MoodPage
-                                toggleLoading={this.toggleLoading}
-                                availableMoods={this.state.moods}
-                                selectMood={this.selectMood}
-                                {...props}/>
-                            }/>
-                            <Route exact path="/overview/" render={(props) => <OverviewPage
-                                selectedMood={this.state.moods[this.state.selectedIndex]}
-                                recommendations={this.state.recommendations}
-                                {...props}/>
-                            }/>
                         </Switch>
                     }
                     <Footer/>
