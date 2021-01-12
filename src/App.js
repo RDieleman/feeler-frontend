@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
-import HomePage from "./pages/home/home.page";
-import MoodPage from "./pages/mood/mood.page";
-import {LoadingOverlay} from "./components/loading-overlay/loading-overlay.component";
-import {Header} from "./components/header/header.component";
-import {Footer} from "./components/footer/footer.component";
-import OverviewPage from "./pages/overview/overview.page";
 import {handleGetMoods, handleGetUser} from "./services/api.service";
+import LoadingPage from "./pages/loading/loading.page";
+import MenuPage from "./pages/menu/menu.page";
+import {HeaderComponent} from "./components/header/header.component";
 
 class App extends Component {
     constructor(props) {
@@ -50,9 +47,14 @@ class App extends Component {
                         :
                         // Content of the application
                         <div id="main-container" className="container-vertical">
+                            {/*Global header*/}
+                            <HeaderComponent/>
 
                             {/*Switch to handle routing*/}
                             <Switch>
+
+                                {/*Menu page*/}
+                                <Route exact path="/" component={MenuPage}/>
 
                             </Switch>
                         </div>

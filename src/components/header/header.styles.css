@@ -1,0 +1,21 @@
+.header-container{
+    width: 100%;
+    align-items: center;
+    background-color: var(--color-main-dark);
+}
+
+.header-title{
+    color: var(--color-gen-attention);
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-logo{
+    flex-grow: 0;
+    height: 45px;
+}

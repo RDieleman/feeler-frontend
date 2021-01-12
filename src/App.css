@@ -46,3 +46,170 @@ html, #root{
     width: 100%;
     height: 100%;
 }
+
+/*
+    Every page content is wrapped in a page container.
+    Set as flexbox to make markup easier.
+ */
+#page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* horizontal */
+    justify-content: flex-start; /* vertical */
+    height: 100%;
+    overflow: auto;
+    flex: 1;
+
+    max-width: 900px;
+    width: 100%;
+
+    align-self: center;
+}
+#page-container > div{
+    width: 100%;
+}
+
+/*
+    Horizontal and vertical flexbox classes to easily create flex-boxes
+ */
+.container-horizontal{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* horizontal */
+    align-items: flex-start; /* vertical */
+    overflow: visible;
+}
+
+.container-horizontal > div{
+    height: 100%;
+    width: 100%;
+}
+
+.container-vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* horizontal */
+    justify-content: flex-start; /* vertical */
+    overflow: visible;
+}
+
+.container-vertical > div{
+    width: 100%;
+}
+
+/*
+    Main container in app to differentiate between the app and loading screen.
+ */
+#main-container{
+    height: 100%;
+    width: 100%;
+}
+
+/*
+    Predefined classes that can be used to markup text
+    contains:
+       - header
+       - title
+       - body
+       - body-sec
+       - body-thr
+ */
+.text-header{
+    width: 100%;
+    font-weight: 700;
+    color: var(--color-main-dark);
+    text-align: left;
+    text-decoration: none;
+}
+
+.text-title{
+    width: 100%;
+    font-weight: 700;
+    color: var(--color-main-light);
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.text-body{
+    width: 100%;
+    font-weight: 300;
+    color: var(--color-gen-dark);
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.text-body-sec{
+    width: 100%;
+    font-weight: 300;
+    color: var(--color-gen-dark);
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.text-body-thr{
+    width: 100%;
+    font-weight: 200;
+    color: var(--color-gen-dark);
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+@media screen and (max-width: 900px){
+    :root{
+        --basic-margin: 16pt;
+    }
+
+    .text-header{
+        font-size: 42pt;
+    }
+
+    .text-title{
+        font-size: 26pt;
+    }
+
+    .text-body{
+        font-size: 22pt;
+    }
+
+    .text-body-sec{
+        font-size: 16pt;
+    }
+
+    .text-body-thr{
+        font-size: 15pt;
+    }
+}
+
+@media screen and (min-width: 901px){
+    :root{
+        --basic-margin: 20pt;
+    }
+
+    .text-header{
+        font-size: 50pt;
+    }
+
+    .text-title{
+        font-size: 30pt;
+    }
+
+    .text-body{
+        font-size: 26pt;
+    }
+
+    .text-body-sec{
+        font-size: 20pt;
+    }
+
+    .text-body-thr{
+        font-size: 18pt;
+    }
+}

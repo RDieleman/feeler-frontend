@@ -1,0 +1,23 @@
+.button-main{
+    background-color: var(--color-main-medium);
+    border: var(--border-width) solid var(--color-main-medium);
+    border-radius: var(--border-radius);
+
+    text-transform: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--color-gen-light);
+}
+
+.button-main > div:first-child{
+    flex: 1;
+}
+
+.button-main > img{
+    height: 100%;
+    width: auto;;
+}

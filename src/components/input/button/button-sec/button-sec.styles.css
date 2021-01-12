@@ -1,0 +1,23 @@
+.button-sec{
+    background-color: var(--color-gen-light);
+    border: var(--border-width) solid var(--color-main-medium);
+    border-radius: var(--border-radius);
+
+    text-transform: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--color-main-medium);
+}
+
+.button-sec > div:first-child{
+    flex: 1;
+}
+
+.button-sec > img{
+    height: 100%;
+    width: auto;;
+}

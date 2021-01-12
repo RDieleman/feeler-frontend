@@ -1,0 +1,12 @@
+#menu-container{
+    flex: 1;
+
+}
+
+#menu-text-container{
+    flex: 1;
+}
+
+.button-padding{
+    height: 10px;
+}

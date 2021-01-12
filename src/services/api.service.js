@@ -97,7 +97,7 @@ export const handleUpdateBookshelf = async (dto) =>{
 }
 
 export const handleGetMoods = async () =>{
-    return fetch(`${properties.backendUrl}/moods`)
+    return fetch(`${properties.backendUrl}/mood`)
         .then(response => response.json())
         .then(data => {
             return data;
