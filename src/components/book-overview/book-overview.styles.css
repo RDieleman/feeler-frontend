@@ -3,17 +3,19 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .book-overview-container > div{
-    background-color: var(--color-gen-medium);
     border-radius: var(--border-radius);
     width: 100%;
+    flex: 1;
+    min-width: 250px;
     max-width: 450px;
 }
 
 .book-overview-container > div > img{
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
