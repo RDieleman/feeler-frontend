@@ -67,6 +67,8 @@ class App extends Component {
             const user = await handleGetUser(1);
             const moods = await handleGetMoods();
 
+            console.log("Current bookshelf: ", user.bookshelf.content)
+
             this.setState({
                 user: user,
                 moods: moods

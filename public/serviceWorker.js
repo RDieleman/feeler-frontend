@@ -93,7 +93,7 @@ self.addEventListener("fetch", (event) => {
                 if (response) {
                     //Return found resource
                     if (event.request.url === `http://localhost:8080/user/1`) {
-                        fetch(event.request).then(response => {
+                        return fetch(event.request).then(response => {
                             if (response.ok) {
                                 return caches.open(cacheNameDynamic)
                                     .then((cache) => {
