@@ -18,6 +18,7 @@ import DetailPage from "./pages/detail/detail.page";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {AddBookDTO, RemoveBookDTO, UpdateBookDTO} from "./models/dto";
 import BookshelfPage from "./pages/bookshelf/bookshelf.page";
+import ReadOverviewPage from "./pages/bookshelf/overview/overview.page";
 
 class App extends Component {
     constructor(props) {
@@ -111,7 +112,6 @@ class App extends Component {
 
                                 {/*Explore overview page*/}
                                 <Route path="/explore/overview/:mood" render={(props) => <ExploreOverviewPage
-                                    handleToggleLoad={this.toggleLoading}
                                     {...props}/>}/>
 
                                 {/*Books detail page*/}
@@ -125,6 +125,19 @@ class App extends Component {
                                 {/*Bookshelf menu page*/}
                                 <Route exact path="/shelf" render={(props) => <BookshelfPage
                                     bookshelf={this.state.user.bookshelf}
+                                    {...props}/>}/>
+
+                                {/*Bookshelf overviews*/}
+                                <Route exact path="/shelf/read" render={(props) => <ReadOverviewPage
+                                    items={this.state.user.bookshelf.getRead()}
+                                    {...props}/>}/>
+
+                                <Route exact path="/shelf/reading" render={(props) => <ReadOverviewPage
+                                    items={this.state.user.bookshelf.getReading()}
+                                    {...props}/>}/>
+
+                                <Route exact path="/shelf/unread" render={(props) => <ReadOverviewPage
+                                    items={this.state.user.bookshelf.getUnread()}
                                     {...props}/>}/>
                             </Switch>
                         </div>

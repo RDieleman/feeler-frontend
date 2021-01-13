@@ -13,4 +13,33 @@ export function Bookshelf(id, content){
             )
         );
     })
+    this.getRead = () =>{
+        const items = [];
+        this.content.forEach(i => {
+            if (i.status === "READ") {
+                items.push(i);
+            }
+        });
+        return items;
+    }
+
+    this.getUnread = () =>{
+        const items = [];
+        this.content.forEach(i => {
+            if (i.status === "UNREAD") {
+                items.push(i);
+            }
+        });
+        return items;
+    }
+
+    this.getReading = () =>{
+        const items = [];
+        this.content.forEach(i => {
+            if (i.status === "READING") {
+                items.push(i);
+            }
+        });
+        return items;
+    }
 }
