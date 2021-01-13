@@ -15,14 +15,11 @@ class ExplorePage extends Component {
     };
 
     handleContinueClick = () =>{
-        console.log("pushing history", this.state.selectedMood);
         this.props.history.push(`/explore/overview/${this.state.selectedMood}`);
     }
 
     handleSelectionChanged = (selection) =>{
-        console.log("selection changed", selection);
         this.setState({selectedMood: selection}, () =>{
-            console.log("state set", this.state);
         });
     }
 

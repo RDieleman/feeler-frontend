@@ -1,18 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
-import {
-    handleAddBook,
-    handleExplore,
-    handleGetMoods,
-    handleGetUser,
-    handleRemoveBook,
-    handleUpdateBook
-} from "./services/api.service";
+import {handleAddBook, handleGetMoods, handleGetUser, handleRemoveBook, handleUpdateBook} from "./services/api.service";
 import MenuPage from "./pages/menu/menu.page";
 import {HeaderComponent} from "./components/header/header.component";
 import ExplorePage from "./pages/explore/explore.page";
-import OverviewPage from "./pages/explore/overview/overview.page";
 import ExploreOverviewPage from "./pages/explore/overview/overview.page";
 import DetailPage from "./pages/detail/detail.page";
 import {LoadingComponent} from "./components/loading/loading.component";
@@ -34,7 +26,6 @@ class App extends Component {
     };
 
     toggleLoading = (loadingState) => {
-        console.log(`Toggling loading state to ${loadingState}`);
         this.setState({isLoading: loadingState});
     }
 
@@ -44,10 +35,7 @@ class App extends Component {
         //Setup the service worker if possible
         if ('serviceWorker' in navigator) {
             await navigator.serviceWorker
-                .register("/serviceWorker.js")
-                .then(() => {
-                    console.log("Service worker registered");
-                });
+                .register("/serviceWorker.js");
         }
 
         /*
@@ -63,7 +51,6 @@ class App extends Component {
         })
 
         try {
-            console.log("retrieving resources")
             const user = await handleGetUser(1);
             const moods = await handleGetMoods();
 
@@ -109,7 +96,6 @@ class App extends Component {
             this.state.user.bookshelf.id,
             book.isbn
         )).then(bookshelf => {
-            console.log("new shelf", bookshelf)
             let {user} = this.state;
             user.bookshelf = bookshelf;
             this.setState({user: user})

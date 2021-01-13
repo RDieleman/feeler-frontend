@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 const logMessage = (message, obj) => {
-    console.log(`[Service Worker] ${message}`, obj);
+    console.log(`[Service Worker] ${message}`);
 }
 // Cache info
 const cacheVersion = 1;
@@ -49,7 +49,7 @@ const cacheTargets = [
 
 // Service worker install event
 self.addEventListener("install", (event) => {
-    logMessage('Installing Service Worker...', event);
+    logMessage('Installing Service Worker...');
     event.waitUntil(
         //Open or create static cache
         InitCache()
@@ -68,7 +68,7 @@ async function InitCache() {
 
 //Service worker activate event
 self.addEventListener("activate", (event) => {
-    logMessage('Activating Service Worker...', event);
+    logMessage('Activating Service Worker...');
     //delete old caches
     event.waitUntil(
         caches.keys()

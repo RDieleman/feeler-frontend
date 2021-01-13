@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "./overview.styles.css";
 import {handleExplore} from "../../../services/api.service";
-import {GetExploreResultDTO} from "../../../models/dto";
 import {BookOverview} from "../../../components/book-overview/book-overview.component";
 import {ButtonMainComponent} from "../../../components/input/button/button-main/button-main.component";
 import {PaddingComponent} from "../../../components/layout/padding/padding.component";
@@ -29,10 +28,8 @@ class ExploreOverviewPage extends Component {
 
     handleGetNextPage = async () => {
         const page = this.state.page + 1;
-        console.log("Retrieving for page: ", page);
 
         const newBooks = await handleExplore(this.props.match.params.mood, page);
-        console.log("Retrieved books", newBooks);
 
         const books = [...this.state.books];
         books.push(...newBooks);

@@ -2,9 +2,7 @@ import React, {Component} from "react";
 import "./bookshelf.styles.css";
 import {PaddingComponent} from "../../components/layout/padding/padding.component";
 import {properties} from "../../properties";
-import {
-    ButtonMainNumberComponent
-} from "../../components/input/button/button-main/button-main-number/button-main-number.component";
+import {ButtonMainNumberComponent} from "../../components/input/button/button-main/button-main-number/button-main-number.component";
 import {ButtonSecNumberComponent} from "../../components/input/button/button-sec/button-sec-number/button-sec-number.component";
 
 class BookshelfPage extends Component {

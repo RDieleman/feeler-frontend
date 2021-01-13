@@ -47,8 +47,6 @@ class DetailPage extends Component {
 
         if (shelfItem) {
             //Book is present on shelf
-            console.log("Rendering for book:", shelfItem);
-
             switch (shelfItem.status) {
                 //Finished the book
                 case "READ":

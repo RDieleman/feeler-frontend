@@ -3,8 +3,6 @@ import "./overview.styles.css";
 import {handleGetBook} from "../../../services/api.service";
 import {LoadingComponent} from "../../../components/loading/loading.component";
 import {BookOverview} from "../../../components/book-overview/book-overview.component";
-import {PaddingComponent} from "../../../components/layout/padding/padding.component";
-import {ButtonMainComponent} from "../../../components/input/button/button-main/button-main.component";
 
 class ShelfOverviewPage extends Component{
 
@@ -23,7 +21,6 @@ class ShelfOverviewPage extends Component{
     }
 
     handleLoadBooks = async () =>{
-        console.log("this", this);
         const {items} = this.props;
         const books = [];
 
