@@ -17,6 +17,7 @@ import ExploreOverviewPage from "./pages/explore/overview/overview.page";
 import DetailPage from "./pages/detail/detail.page";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {AddBookDTO, RemoveBookDTO, UpdateBookDTO} from "./models/dto";
+import BookshelfPage from "./pages/bookshelf/bookshelf.page";
 
 class App extends Component {
     constructor(props) {
@@ -49,11 +50,11 @@ class App extends Component {
         }
     }
 
-    handleAddToShelf = (book) =>{
+    handleAddToShelf = (book) => {
         handleAddBook(new AddBookDTO(
             this.state.user.bookshelf.id,
             book.isbn
-        )).then(bookshelf =>{
+        )).then(bookshelf => {
             console.log("new shelf", bookshelf)
             let {user} = this.state;
             user.bookshelf = bookshelf;
@@ -61,23 +62,23 @@ class App extends Component {
         });
     }
 
-    handleRemoveFromShelf = (book) =>{
+    handleRemoveFromShelf = (book) => {
         handleRemoveBook(new RemoveBookDTO(
             this.state.user.bookshelf.id,
             book.isbn
-        )).then(bookshelf =>{
+        )).then(bookshelf => {
             let {user} = this.state;
             user.bookshelf = bookshelf;
             this.setState({user: user})
         });
     }
 
-    handleUpdateStatus = (book, status) =>{
+    handleUpdateStatus = (book, status) => {
         handleUpdateBook(new UpdateBookDTO(
             this.state.user.bookshelf.id,
             book.isbn,
             status
-        )).then(bookshelf =>{
+        )).then(bookshelf => {
             let {user} = this.state;
             user.bookshelf = bookshelf;
             this.setState({user: user})
@@ -119,6 +120,11 @@ class App extends Component {
                                     handleAddToShelf={this.handleAddToShelf}
                                     handleRemoveFromShelf={this.handleRemoveFromShelf}
                                     handleUpdateStatus={this.handleUpdateStatus}
+                                    {...props}/>}/>
+
+                                {/*Bookshelf menu page*/}
+                                <Route exact path="/shelf" render={(props) => <BookshelfPage
+                                    bookshelf={this.state.user.bookshelf}
                                     {...props}/>}/>
                             </Switch>
                         </div>

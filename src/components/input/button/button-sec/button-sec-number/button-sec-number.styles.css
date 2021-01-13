@@ -1,0 +1,10 @@
+.button-sec > div{
+    display: flex;
+
+    justify-content: flex-end;
+
+    color: var(--color-gen-dark);
+
+    height: 100%;
+    width: auto;;
+}

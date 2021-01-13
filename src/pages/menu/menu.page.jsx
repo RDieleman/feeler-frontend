@@ -24,7 +24,7 @@ class MenuPage extends Component {
 
     //Redirect to bookshelf
     handleBookshelfClick = () => {
-        this.props.history.push("/bookshelf");
+        this.props.history.push("/shelf");
     }
 
     //Open extra options

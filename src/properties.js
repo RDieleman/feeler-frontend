@@ -16,5 +16,11 @@ export const properties ={
     textExploreGreeting: "Great!",
     textExploreContinue: "How would you like to feel?",
     textExploreAnswer: "I want to feel...",
-    textExploreBtnContinue: "Continue"
+    textExploreBtnContinue: "Continue",
+
+    textShelfGreeting: "Which bookshelf would you like to see?",
+    textShelfAnswer: "I want to see...",
+    textShelfBtnRead: "Books I've finished",
+    textShelfBtnReading: "Books I'm reading",
+    textShelfBtnUnread: "Books I want to read"
 }

@@ -1,0 +1,9 @@
+.button-main > div{
+    display: flex;
+    justify-content: flex-end;
+
+    color: var(--color-gen-light);
+
+    height: 100%;
+    width: auto;;
+}
