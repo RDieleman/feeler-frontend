@@ -148,7 +148,10 @@ class App extends Component {
                         // Content of the application
                         <div id="main-container" className="container-vertical">
                             {/*Global header*/}
-                            <HeaderComponent/>
+                            <HeaderComponent
+                                installIsAvailable={(this.state.deferredPrompt)}
+                                handleInstallClicked={this.handleCreateInstallPrompt}
+                            />
 
                             {/*Switch to handle routing*/}
                             <Switch>

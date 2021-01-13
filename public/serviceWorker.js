@@ -40,6 +40,7 @@ const cacheTargets = [
     "/images/icons/maskable_icon_x152.png",
     "/images/icons/maskable_icon_x384.png",
     "/images/icons/maskable_icon_x512.png",
+    "/images/icons/icon-install.svg",
     "/images/logo.svg",
 
     "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap",
