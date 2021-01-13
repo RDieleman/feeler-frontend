@@ -63,6 +63,7 @@ class App extends Component {
         })
 
         try {
+            console.log("retrieving resources")
             const user = await handleGetUser(1);
             const moods = await handleGetMoods();
 
