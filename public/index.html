@@ -2,32 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/images/icons/favicon.ico" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+
+    <meta name="theme-color" content="#A79576" />
+
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Find a book for every mood"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <!-- Safari support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#46515D">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/icons/icon-apple-x192.png" sizes="192x192" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Internet Explorer support -->
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/images/icons/icon-apple-x192.png">
+    <meta name="msapplication-TileColor" content="#46515D">
+    <meta name="theme-color" content="#A79576">
+
+
+    <title>Feeler</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; font-family: Arial">
+      <img src='images/icons/icon-error.png' alt="icon-error"/>
+      <div style="padding: 20px;">We're sorry!</div>
+      <div class="text-body">You need to enable JavaScript to run this app.</div>
+    </div>
+  </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
