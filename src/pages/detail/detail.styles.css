@@ -1,0 +1,11 @@
+.detail-container {
+
+}
+
+.detail-container > img {
+    height: 40vh;
+    width: 100%;
+    object-fit: contain;
+    background-color: var(--color-main-light);
+    justify-self: stretch;
+}

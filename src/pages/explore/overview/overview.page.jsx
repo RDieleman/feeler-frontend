@@ -5,6 +5,7 @@ import {GetExploreResultDTO} from "../../../models/dto";
 import {BookOverview} from "../../../components/book-overview/book-overview.component";
 import {ButtonMainComponent} from "../../../components/input/button/button-main/button-main.component";
 import {PaddingComponent} from "../../../components/layout/padding/padding.component";
+import {LoadingComponent} from "../../../components/loading/loading.component";
 
 class ExploreOverviewPage extends Component {
 
@@ -13,12 +14,14 @@ class ExploreOverviewPage extends Component {
 
         this.state = {
             page: 0,
-            books: []
+            books: [],
+            loading: true
         };
     };
 
     async componentDidMount() {
         await this.handleGetNextPage();
+        this.setState({loading: false})
     }
 
     handleGetNextPage = async () => {
@@ -40,26 +43,37 @@ class ExploreOverviewPage extends Component {
         });
     }
 
+    handleBookClicked = (book) =>{
+        this.props.history.push(`/detail/${book.isbn}`);
+    }
+
     render() {
         return (
             <div id="page-container">
-                <BookOverview books={this.state.books}/>
+                {(this.state.loading)?
+                <LoadingComponent/>:
+                <div className="container-vertical">
+                    <BookOverview
+                    books={this.state.books}
+                    handleOnClick={this.handleBookClicked}
+                    />
 
-                {/*Load button*/}
-                {this.state.books.length > 0 ?
-                    <div className="container-horizontal">
-                    <PaddingComponent/>
-                    <div className="container-vertical">
-                        <PaddingComponent basis="10px"/>
-                        <ButtonMainComponent
-                            content="Load more..."
-                            handleOnClick={this.handleGetNextPage}
-                        />
-                        <PaddingComponent basis="10px"/>
-                    </div>
-                    <PaddingComponent/>
-                </div>:
-                ""}
+                    {/*Load button*/}
+                    {this.state.books.length > 0 ?
+                        <div className="container-horizontal">
+                            <PaddingComponent/>
+                            <div className="container-vertical">
+                                <PaddingComponent basis="10px"/>
+                                <ButtonMainComponent
+                                    content="Load more..."
+                                    handleOnClick={this.handleGetNextPage}
+                                />
+                                <PaddingComponent basis="10px"/>
+                            </div>
+                            <PaddingComponent/>
+                        </div>:
+                        ""}
+                </div>}
             </div>
         )
     }

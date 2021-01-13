@@ -8,7 +8,7 @@ export function Bookshelf(id, content){
         this.content.push(
             new BookshelfItem(
                 i.id,
-                i.isbn,
+                i.isbn13,
                 i.status
             )
         );
