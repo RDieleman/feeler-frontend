@@ -5,6 +5,7 @@ import {handleGetMoods, handleGetUser} from "./services/api.service";
 import LoadingPage from "./pages/loading/loading.page";
 import MenuPage from "./pages/menu/menu.page";
 import {HeaderComponent} from "./components/header/header.component";
+import ExplorePage from "./pages/explore/explore.page";
 
 class App extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
 
     async componentDidMount() {
         this.toggleLoading(true);
-        try{
+        try {
             const user = await handleGetUser(1);
             const moods = await handleGetMoods();
 
@@ -32,7 +33,7 @@ class App extends Component {
                 user: user,
                 moods: moods
             });
-        }finally {
+        } finally {
             this.toggleLoading(false);
         }
     }
@@ -56,6 +57,10 @@ class App extends Component {
                                 {/*Menu page*/}
                                 <Route exact path="/" component={MenuPage}/>
 
+                                {/*Explore page*/}
+                                <Route path="/explore" render={(props) => <ExplorePage
+                                    moods={this.state.moods}
+                                    {...props}/>}/>
                             </Switch>
                         </div>
                     }

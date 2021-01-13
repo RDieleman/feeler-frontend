@@ -11,5 +11,10 @@ export const properties ={
     textMenuBtnExplore: "Explore new books",
     textMenuBtnBookshelf: "Go to my bookshelf",
     textMenuBtnOtherOptions: "View other options",
-    textMenuPageName: "Menu"
+    textMenuPageName: "Menu",
+
+    textExploreGreeting: "Great!",
+    textExploreContinue: "How would you like to feel?",
+    textExploreAnswer: "I want to feel...",
+    textExploreBtnContinue: "Continue"
 }

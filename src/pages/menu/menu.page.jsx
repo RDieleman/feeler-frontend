@@ -19,7 +19,7 @@ class MenuPage extends Component {
 
     //Redirect to mood page
     handleExploreClick = () => {
-        this.props.history.push("/mood");
+        this.props.history.push("/explore");
     }
 
     //Redirect to bookshelf

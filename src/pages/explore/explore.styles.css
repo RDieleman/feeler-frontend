@@ -1,0 +1,12 @@
+#explore-container{
+    flex: 1;
+
+}
+
+#explore-text-container{
+    flex: 1;
+}
+
+.button-padding{
+    height: 10px;
+}

@@ -3,7 +3,7 @@ import "./header.styles.css";
 import {PaddingComponent} from "../layout/padding/padding.component";
 import {properties} from "../../properties";
 
-export const HeaderComponent = ({}) =>{
+export const HeaderComponent = () =>{
     return(
         //Header component
         <header className="header-container container-vertical">
