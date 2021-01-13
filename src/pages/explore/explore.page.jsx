@@ -10,7 +10,7 @@ class ExplorePage extends Component {
         super(props);
 
         this.state = {
-            selectedMood: null
+            selectedMood: this.props.moods[0]
         };
     };
 
