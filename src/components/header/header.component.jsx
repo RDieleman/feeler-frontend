@@ -7,7 +7,8 @@ import {ButtonIconComponent} from "../input/button/button-icon/button-icon.compo
 export const HeaderComponent = ({installIsAvailable, handleInstallClicked}) =>{
     return(
         //Header component
-        <header className="header-container container-vertical">
+        <header className="header-container container-vertical"
+        >
             <PaddingComponent basis="10px"/>
 
             {/*Header content*/}
@@ -15,7 +16,9 @@ export const HeaderComponent = ({installIsAvailable, handleInstallClicked}) =>{
                 <PaddingComponent/>
 
                 {/*App name*/}
-                <div className="header-title text-title ">
+                <div
+                    className="header-title text-title "
+                    onClick={() => window.location.href = "/"}>
                     {properties.name}
                 </div>
 
