@@ -3,8 +3,13 @@ import "./loading.styles.css";
 
 export const LoadingComponent = () =>{
     return(
-        <div>
-            Loading...
+        <div className="loading-container">
+            <div className="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     )
 }
