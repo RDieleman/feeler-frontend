@@ -20,12 +20,16 @@ class ExploreOverviewPage extends Component {
     };
 
     async componentDidMount() {
+        const rnd = Math.floor(Math.random() * 150) + 1
+        await this.setState({page: rnd})
+
         await this.handleGetNextPage();
         this.setState({loading: false})
     }
 
     handleGetNextPage = async () => {
         const page = this.state.page + 1;
+        console.log("Retrieving for page: ", page);
 
         const newBooks = await handleExplore(this.props.match.params.mood, page);
         console.log("Retrieved books", newBooks);

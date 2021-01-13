@@ -5,7 +5,7 @@ export const properties ={
     name: "feeler",
 
     //todo: change to format username on page
-    textMenuGreeting: "Hello, username!",
+    textMenuGreeting: "Hello!",
     textMenuContinue: "What would you like to do?",
     textMenuAnswer: "I want to...",
     textMenuBtnExplore: "Explore new books",
