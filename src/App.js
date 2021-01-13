@@ -25,6 +25,8 @@ class App extends Component {
         super(props);
 
         this.state = {
+            deferredPrompt: null, //Install prompt filled once supplied
+
             isLoading: true,
             moods: undefined,
             user: undefined,
@@ -38,6 +40,28 @@ class App extends Component {
 
     async componentDidMount() {
         this.toggleLoading(true);
+
+        //Setup the service worker if possible
+        if ('serviceWorker' in navigator) {
+            await navigator.serviceWorker
+                .register("/serviceWorker.js")
+                .then(() => {
+                    console.log("Service worker registered");
+                });
+        }
+
+        /*
+            Add an event listener to catch the install prompt.
+             Once caught, prevent the popup and set the state, which enables the download button in the header.
+            This usually takes a few seconds to appear.
+        */
+        window.addEventListener("beforeinstallprompt", (event) => {
+            console.log("beforeinstallprompt fired and caught", event);
+            event.preventDefault();
+            this.setState({deferredPrompt: event});
+            return false;
+        })
+
         try {
             const user = await handleGetUser(1);
             const moods = await handleGetMoods();
@@ -49,6 +73,32 @@ class App extends Component {
         } finally {
             this.toggleLoading(false);
         }
+    }
+
+    /*
+    Create the install prompt after it has been caught.
+    Function is passed into the header and called when install button is pressed.
+    If no prompt is available nothing happens.
+ */
+    handleCreateInstallPrompt = () => {
+        let {deferredPrompt} = this.state;
+
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'dismissed') {
+                    console.log('User cancelled installation');
+                } else {
+                    console.log('User added to homescreen');
+                }
+            })
+        } else {
+            console.log("No prompt available");
+        }
+
+        //clear deferredPrompt
+        this.setState({deferredPrompt: null})
     }
 
     handleAddToShelf = (book) => {
