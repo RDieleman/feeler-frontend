@@ -7,11 +7,6 @@ export function GetBookshelfDTO(bookshelfId){
     this.bookshelfId = bookshelfId;
 }
 
-export function GetExploreResultDTO(mood, page){
-    this.mood = mood;
-    this.page = page;
-}
-
 export function RemoveBookDTO(bookshelfId, isbn){
     this.bookshelfId = bookshelfId;
     this.isbn13 = isbn;

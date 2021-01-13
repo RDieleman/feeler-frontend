@@ -112,14 +112,9 @@ export const handleGetUser = async (id) =>{
         });
 }
 
-export const handleExplore = async (dto) =>{
-    return fetch(`${properties.backendUrl}/explore`, {
-        method: 'POST',
-        body: JSON.stringify(dto),
-        headers: {
-            'Accept': '*/*',
-            'Content-Type': 'application/json'
-        }
+export const handleExplore = async (mood, page) =>{
+    return fetch(`${properties.backendUrl}/explore/${mood}/${page}`, {
+        method: 'GET'
     }).then(response => response.json())
         .then(data => {
             const books = [];

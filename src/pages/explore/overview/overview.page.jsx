@@ -26,12 +26,8 @@ class ExploreOverviewPage extends Component {
 
     handleGetNextPage = async () => {
         const page = this.state.page + 1;
-        const dto = new GetExploreResultDTO(
-            this.props.match.params.mood,
-            page
-        );
 
-        const newBooks = await handleExplore(dto);
+        const newBooks = await handleExplore(this.props.match.params.mood, page);
         console.log("Retrieved books", newBooks);
 
         const books = [...this.state.books];
