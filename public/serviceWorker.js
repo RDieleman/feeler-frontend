@@ -92,7 +92,6 @@ self.addEventListener("fetch", (event) => {
             .then((response) => {
                 if (response) {
                     //Return found resource
-                    console.log(event.request.url);
                     if (event.request.url === `http://localhost:8080/user/1`) {
                         fetch(event.request).then(response => {
                             if (response.ok) {
