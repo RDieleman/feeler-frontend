@@ -60,7 +60,6 @@ html, #root{
     overflow: auto;
     flex: 1;
 
-    max-width: 900px;
     width: 100%;
 
     align-self: center;

@@ -26,7 +26,12 @@ export const handleGetBook = async (isbn) =>{
 
 export const handleGetBookshelf = async (dto) =>{
     return fetch(`${properties.backendUrl}/bookshelf`, {
-        body: dto
+        method: 'POST',
+        body: JSON.stringify(dto),
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        }
     }).then(response => response.json())
         .then(data => {
             return new Bookshelf(
@@ -39,7 +44,11 @@ export const handleGetBookshelf = async (dto) =>{
 export const handleAddBook = async (dto) =>{
     return fetch(`${properties.backendUrl}/bookshelf`, {
         method: 'PUT',
-        body: dto
+        body: JSON.stringify(dto),
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        }
     }).then(response => response.json())
         .then(data => {
             return new Bookshelf(
@@ -52,7 +61,11 @@ export const handleAddBook = async (dto) =>{
 export const handleRemoveBook = async (dto) =>{
     return fetch(`${properties.backendUrl}/bookshelf`, {
         method: 'DELETE',
-        body: dto
+        body: JSON.stringify(dto),
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        }
     }).then(response => response.json())
         .then(data => {
             return new Bookshelf(
@@ -65,34 +78,17 @@ export const handleRemoveBook = async (dto) =>{
 export const handleUpdateBook = async (dto) =>{
     return fetch(`${properties.backendUrl}/bookshelf`, {
         method: 'PATCH',
-        body: dto
+        body: JSON.stringify(dto),
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        }
     }).then(response => response.json())
         .then(data => {
             return new Bookshelf(
                 data.id,
                 data.content
             )
-        });
-}
-
-export const handleUpdateBookshelf = async (dto) =>{
-    return fetch(`${properties.backendUrl}/explore`, {
-        method: 'GET',
-        body: dto
-    }).then(response => response.json())
-        .then(data => {
-            const books = [];
-            data.forEach(b =>{
-                books.push(
-                    new Book(
-                        data.title,
-                        data.overview,
-                        data.isbn13,
-                        data.imageUrl
-                    )
-                );
-            });
-            return books;
         });
 }
 
@@ -114,4 +110,29 @@ export const handleGetUser = async (id) =>{
                 data.bookshelf
             );
         });
+}
+
+export const handleExplore = async (dto) =>{
+    return fetch(`${properties.backendUrl}/explore`, {
+        method: 'POST',
+        body: JSON.stringify(dto),
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(data => {
+            const books = [];
+            data.forEach(b => {
+                books.push(
+                    new Book(
+                        b.title,
+                        b.overview,
+                        b.isbn13,
+                        b.imageUrl
+                    )
+                )
+            });
+            return books;
+        })
 }

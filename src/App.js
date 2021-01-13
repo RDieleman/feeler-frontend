@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
-import {handleGetMoods, handleGetUser} from "./services/api.service";
+import {handleExplore, handleGetMoods, handleGetUser} from "./services/api.service";
 import LoadingPage from "./pages/loading/loading.page";
 import MenuPage from "./pages/menu/menu.page";
 import {HeaderComponent} from "./components/header/header.component";
 import ExplorePage from "./pages/explore/explore.page";
+import OverviewPage from "./pages/explore/overview/overview.page";
+import ExploreOverviewPage from "./pages/explore/overview/overview.page";
 
 class App extends Component {
     constructor(props) {
@@ -58,8 +60,12 @@ class App extends Component {
                                 <Route exact path="/" component={MenuPage}/>
 
                                 {/*Explore page*/}
-                                <Route path="/explore" render={(props) => <ExplorePage
+                                <Route exact path="/explore" render={(props) => <ExplorePage
                                     moods={this.state.moods}
+                                    {...props}/>}/>
+                                {/*Explore overview page*/}
+                                <Route path="/explore/overview/:mood" render={(props) => <ExploreOverviewPage
+                                    handleToggleLoad={this.toggleLoading}
                                     {...props}/>}/>
                             </Switch>
                         </div>

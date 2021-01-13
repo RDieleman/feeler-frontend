@@ -10,16 +10,20 @@ class ExplorePage extends Component {
         super(props);
 
         this.state = {
-            selectedMood: undefined
+            selectedMood: null
         };
     };
 
     handleContinueClick = () =>{
-        this.props.history.push(`/overview/${this.state.selectedMood}`);
+        console.log("pushing history", this.state.selectedMood);
+        this.props.history.push(`/explore/overview/${this.state.selectedMood}`);
     }
 
     handleSelectionChanged = (selection) =>{
-        this.setState({selectedMood: selection});
+        console.log("selection changed", selection);
+        this.setState({selectedMood: selection}, () =>{
+            console.log("state set", this.state);
+        });
     }
 
     render() {
