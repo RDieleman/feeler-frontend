@@ -93,16 +93,24 @@ self.addEventListener("fetch", (event) => {
                 if (response) {
                     //Return found resource
                     if (event.request.url === `http://localhost:8080/user/1`) {
-                        return fetch(event.request).then(response => {
-                            if (response.ok) {
-                                return caches.open(cacheNameDynamic)
-                                    .then((cache) => {
-                                        cache.put(event.request.url, response.clone());
-                                        return response;
-                                    })
-                            }
-                        });
+                        logMessage("Request for user caught");
+                        try{
+                            return fetch(event.request)
+                                .then((res) => {
+                                    if (res.ok) {
+                                        return caches.open(cacheNameDynamic)
+                                            .then((cache) => {
+                                                cache.put(event.request.url, res.clone());
+                                                return res;
+                                            })
+                                    }
+                                });
+                        }catch(err) {
+                            logMessage("Failed to retrieve new user. Returning cached object.");
+                            return response;
+                        }
                     }
+
                     return response;
                 } else {
                     //Fetch new resource
