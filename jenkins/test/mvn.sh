@@ -1,4 +1,5 @@
 #!/bin/bash
+cp -r code/ jenkins/test/
 
 echo "================================"
 echo "======== Testing Code =========="
