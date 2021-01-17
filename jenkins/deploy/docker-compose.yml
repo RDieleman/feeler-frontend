@@ -1,0 +1,10 @@
+version: '3'
+services: 
+  app:
+    ports:
+    - 3000:3000
+    image: "$IMAGE:$BUILD_TAG-production"
+    container_name: feeler-frontend-production
+    build:
+      context: .
+      dockerfile: Dockerfile
