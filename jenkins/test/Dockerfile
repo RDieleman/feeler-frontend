@@ -14,5 +14,5 @@ COPY code/ .
 
 RUN ls
 
-RUN npm test
+RUN npm CI=true npm test
 
