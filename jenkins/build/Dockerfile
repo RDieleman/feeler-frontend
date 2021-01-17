@@ -1,7 +1,6 @@
-FROM node:alpine as builder
+FROM node:current-alpine3.10 as builder
 
 RUN mkdir /app
-WORKDIR /app
 
 COPY code/package.json .
 
