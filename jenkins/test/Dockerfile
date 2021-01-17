@@ -4,6 +4,8 @@ RUN mkdir /app
 
 WORKDIR /app
 
+RUN cd code
+
 COPY package.json .
 
 RUN ls

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Copy the new jar to the build location
+ls
 cp -r code/ jenkins/test/
 
 echo "======================================="
