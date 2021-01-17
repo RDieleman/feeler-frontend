@@ -1,0 +1,8 @@
+version: '3'
+services: 
+  test:
+    image: "$IMAGE:$BUILD_TAG-test"
+    container_name: feeler-frontend-test
+    build:
+      context: .
+      dockerfile: Dockerfile
