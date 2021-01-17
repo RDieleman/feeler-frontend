@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY code/package.json .
+COPY package.json .
 
 RUN npm install --legacy-peer-deps
 
