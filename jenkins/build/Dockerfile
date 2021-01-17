@@ -1,6 +1,7 @@
 FROM node:alpine as builder
 
 RUN mkdir /app
+WORKDIR /app
 
 COPY code/package.json .
 
