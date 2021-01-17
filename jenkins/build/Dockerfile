@@ -1,10 +1,10 @@
-FROM node:current-alpine3.10 as builder
+FROM node:alpine as builder
 
 RUN mkdir /app
 
 COPY code/package.json .
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY code/ .
 
