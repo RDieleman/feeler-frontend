@@ -7,7 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    docker-compose -f ./jenkins/install/docker-compose.yml up --rm
+                    docker-compose -f ./jenkins/test/docker-compose.yml up --rm
                 '''
             }
         }
