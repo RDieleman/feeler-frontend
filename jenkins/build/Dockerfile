@@ -3,9 +3,9 @@ FROM node:alpine
 RUN mkdir /app
 WORKDIR /app
 
-RUN cd code
+COPY code/package.json .
 
-COPY package.json .
+RUN cd app
 
 RUN npm install --legacy-peer-deps
 
