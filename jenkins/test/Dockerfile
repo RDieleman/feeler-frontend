@@ -4,11 +4,9 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY package.json .
+COPY . .
 
 RUN npm install --legacy-peer-deps
-
-COPY . .
 
 RUN npm test
 
