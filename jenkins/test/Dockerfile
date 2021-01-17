@@ -12,5 +12,7 @@ RUN npm install --legacy-peer-deps
 
 COPY code/ .
 
+RUN ls
+
 RUN npm test
 
