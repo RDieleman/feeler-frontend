@@ -18,6 +18,7 @@ pipeline {
                 sh '''
                     chmod +x ./jenkins/test/mvn.sh
                     ./jenkins/test/mvn.sh npm run-script test
+                    echo q
                 '''
             }
         }
