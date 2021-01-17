@@ -8,4 +8,4 @@ echo "======================================="
 echo "======== Building Docker Image ========"
 echo "======================================="
 
-cd jenkins/test/ && docker-compose -f docker-compose.yml build --no-cache
+cd jenkins/test/ && docker-compose -f docker-compose.yml build
