@@ -4,20 +4,21 @@ pipeline {
 
     stages {
 
-        stage('Build') {
-            steps {
-                sh '''
-                    chmod +x ./jenkins/build/build.sh
-                    ./jenkins/build/build.sh
-                '''
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh '''
+        //             chmod +x ./jenkins/build/build.sh
+        //             ./jenkins/build/build.sh
+        //         '''
+        //     }
+        // }
 
         stage('Test') {
             steps {
                 sh '''
+                    docker-compose -f ./jenkins/test/docker-compose.yml build --no-cache
                     chmod +x ./jenkins/test/mvn.sh
-                    ./jenkins/test/mvn.sh npm install --legacy-peer-deps && npm test
+                    ./jenkins/test/mvn.sh
                 '''
             }
         }
