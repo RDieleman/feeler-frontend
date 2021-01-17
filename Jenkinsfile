@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x ./jenkins/test/mvn.sh
-                    ./jenkins/test/mvn.sh pwd
+                    ./jenkins/test/mvn.sh ls
                 '''
             }
         }
