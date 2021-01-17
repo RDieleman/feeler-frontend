@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x ./jenkins/test/mvn.sh
-                    ./jenkins/test/mvn.sh npm install --legacy-peer-deps&&npm test
+                    ./jenkins/test/mvn.sh npm install --legacy-peer-deps && npm test
                 '''
             }
         }
