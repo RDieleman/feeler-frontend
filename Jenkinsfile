@@ -7,8 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    chmod +x ./jenkins/test/mvn.sh
-                    ./jenkins/test/mvn.sh npm test
+                    docker-compose -f ./jenkins/install/docker-compose.yml up --rm
                 '''
             }
         }
