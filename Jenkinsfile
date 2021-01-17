@@ -16,7 +16,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    docker-compose -f ./jenkins/test/docker-compose.yml build --no-cache
+                    chmod +x ./jenkins/test/build.sh
+                    ./jenkins/test/build.sh
                     chmod +x ./jenkins/test/mvn.sh
                     ./jenkins/test/mvn.sh
                 '''
