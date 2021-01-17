@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copy the new jar to the build location
-cp -rf /code/ /jenkins/build/
+cp -r /code/ /jenkins/build/
 
 echo "======================================="
 echo "======== Building Docker Image ========"
