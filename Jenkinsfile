@@ -26,7 +26,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker-compose -f ./jenkins/deploy/docker-compose.yml up -d'
+                sh '''
+                    chmod +x ./jenkins/deploy/build.sh
+                    ./jenkins/deploy/build.sh
+                    chmod +x ./jenkins/deploy/deploy.sh
+                    ./jenkins/deploy/deploy.sh
+                '''
             }
         }
     }
