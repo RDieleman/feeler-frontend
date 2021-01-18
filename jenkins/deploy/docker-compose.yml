@@ -3,6 +3,8 @@ services:
   app:
     ports:
     - 80:80
+    volumes:
+      - /home/ruben/jenkins/jenkins_home/workspace/feeler-frontend/code:/app
     image: "$IMAGE:$BUILD_TAG-production"
     container_name: feeler-frontend-production
     build:

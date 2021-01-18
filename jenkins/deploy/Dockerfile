@@ -10,7 +10,7 @@ RUN npm install --legacy-peer-deps
 
 COPY code/ .
 
-RUN ll
+RUN ls
 
 RUN npm run-script build
 
