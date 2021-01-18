@@ -12,7 +12,8 @@ COPY code/ .
 
 RUN ls
 
-RUN npm run-script build
+RUN npm cross-env run-script build
+
 
 FROM nginx
 
