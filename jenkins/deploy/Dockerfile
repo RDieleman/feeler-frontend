@@ -10,6 +10,8 @@ RUN npm install --legacy-peer-deps
 
 COPY code/ .
 
+RUN ll
+
 RUN npm run-script build
 
 FROM nginx
