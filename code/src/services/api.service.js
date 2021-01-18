@@ -11,7 +11,13 @@ import {User} from "../models/user";
  */
 
 export const handleGetBook = async (isbn) =>{
-    return fetch( `${process.env.REACT_APP_API_URL}/book/${isbn}`)
+    return fetch( `${process.env.REACT_APP_API_URL}/book/${isbn}`,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
+        }
+    })
         .then(response => response.json())
         .then(data => {
             return new Book(
@@ -29,7 +35,8 @@ export const handleGetBookshelf = async (dto) =>{
         body: JSON.stringify(dto),
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
     }).then(response => response.json())
         .then(data => {
@@ -46,7 +53,8 @@ export const handleAddBook = async (dto) =>{
         body: JSON.stringify(dto),
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
     }).then(response => response.json())
         .then(data => {
@@ -63,7 +71,8 @@ export const handleRemoveBook = async (dto) =>{
         body: JSON.stringify(dto),
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
     }).then(response => response.json())
         .then(data => {
@@ -80,7 +89,8 @@ export const handleUpdateBook = async (dto) =>{
         body: JSON.stringify(dto),
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
     }).then(response => response.json())
         .then(data => {
@@ -92,7 +102,13 @@ export const handleUpdateBook = async (dto) =>{
 }
 
 export const handleGetMoods = async () =>{
-    return fetch(`${process.env.REACT_APP_API_URL}/mood`)
+    return fetch(`${process.env.REACT_APP_API_URL}/mood`,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
+        }
+    })
         .then(response => response.json())
         .then(data => {
             return data;
@@ -100,7 +116,13 @@ export const handleGetMoods = async () =>{
 }
 
 export const handleGetUser = async (id) =>{
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${id}`)
+    return fetch(`${process.env.REACT_APP_API_URL}/user/${id}`,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
+        }
+    })
         .then(response => response.json())
         .then(data => {
             return new User(
@@ -112,8 +134,12 @@ export const handleGetUser = async (id) =>{
 }
 
 export const handleExplore = async (mood, page) =>{
-    return fetch(`${process.env.REACT_APP_API_URL}/explore/${mood}/${page}`, {
-        method: 'GET'
+    return fetch(`${process.env.REACT_APP_API_URL}/explore/${mood}/${page}`,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
+        }
     }).then(response => response.json())
         .then(data => {
             const books = [];
