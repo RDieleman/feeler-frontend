@@ -1,7 +1,4 @@
 export const properties ={
-    backendUrl: "http://localhost:8080",
-    frontendUrl: "http://localhost:3000",
-
     name: "feeler",
 
     //todo: change to format username on page

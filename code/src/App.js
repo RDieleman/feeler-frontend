@@ -11,6 +11,7 @@ import {LoadingComponent} from "./components/loading/loading.component";
 import {AddBookDTO, RemoveBookDTO, UpdateBookDTO} from "./models/dto";
 import BookshelfPage from "./pages/bookshelf/bookshelf.page";
 import ReadOverviewPage from "./pages/bookshelf/overview/overview.page";
+require('dotenv').config();
 
 class App extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
     }
 
     async componentDidMount() {
+        console.log("backend target", process.env.REACT_APP_API_URL);
         this.toggleLoading(true);
 
         //Setup the service worker if possible
@@ -52,7 +54,9 @@ class App extends Component {
 
         try {
             const user = await handleGetUser(1);
+            console.log("Retrieved user", user);
             const moods = await handleGetMoods();
+            console.log("Retrieved moods", moods);
 
             console.log("Current bookshelf: ", user.bookshelf.content)
 

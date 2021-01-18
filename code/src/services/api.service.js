@@ -1,4 +1,3 @@
-import {properties} from "../properties";
 import {Book} from "../models/book";
 import {Bookshelf} from "../models/bookshelf";
 import {User} from "../models/user";
@@ -12,7 +11,7 @@ import {User} from "../models/user";
  */
 
 export const handleGetBook = async (isbn) =>{
-    return fetch( `${properties.backendUrl}/book/${isbn}`)
+    return fetch( `${process.env.REACT_APP_API_URL}/book/${isbn}`)
         .then(response => response.json())
         .then(data => {
             return new Book(
@@ -25,7 +24,7 @@ export const handleGetBook = async (isbn) =>{
 }
 
 export const handleGetBookshelf = async (dto) =>{
-    return fetch(`${properties.backendUrl}/bookshelf`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/bookshelf`, {
         method: 'POST',
         body: JSON.stringify(dto),
         headers: {
@@ -42,7 +41,7 @@ export const handleGetBookshelf = async (dto) =>{
 }
 
 export const handleAddBook = async (dto) =>{
-    return fetch(`${properties.backendUrl}/bookshelf`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/bookshelf`, {
         method: 'PUT',
         body: JSON.stringify(dto),
         headers: {
@@ -59,7 +58,7 @@ export const handleAddBook = async (dto) =>{
 }
 
 export const handleRemoveBook = async (dto) =>{
-    return fetch(`${properties.backendUrl}/bookshelf`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/bookshelf`, {
         method: 'DELETE',
         body: JSON.stringify(dto),
         headers: {
@@ -76,7 +75,7 @@ export const handleRemoveBook = async (dto) =>{
 }
 
 export const handleUpdateBook = async (dto) =>{
-    return fetch(`${properties.backendUrl}/bookshelf`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/bookshelf`, {
         method: 'PATCH',
         body: JSON.stringify(dto),
         headers: {
@@ -93,7 +92,7 @@ export const handleUpdateBook = async (dto) =>{
 }
 
 export const handleGetMoods = async () =>{
-    return fetch(`${properties.backendUrl}/mood`)
+    return fetch(`${process.env.REACT_APP_API_URL}/mood`)
         .then(response => response.json())
         .then(data => {
             return data;
@@ -101,7 +100,7 @@ export const handleGetMoods = async () =>{
 }
 
 export const handleGetUser = async (id) =>{
-    return fetch(`${properties.backendUrl}/user/${id}`)
+    return fetch(`${process.env.REACT_APP_API_URL}/user/${id}`)
         .then(response => response.json())
         .then(data => {
             return new User(
@@ -113,7 +112,7 @@ export const handleGetUser = async (id) =>{
 }
 
 export const handleExplore = async (mood, page) =>{
-    return fetch(`${properties.backendUrl}/explore/${mood}/${page}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/explore/${mood}/${page}`, {
         method: 'GET'
     }).then(response => response.json())
         .then(data => {
