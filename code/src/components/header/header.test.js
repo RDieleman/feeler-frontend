@@ -6,6 +6,6 @@ it("Expect to render Header component", () => {
     expect(shallow(
         <HeaderComponent
             handleInstallClicked={() => console.log("Header clicked")}
-            installIsAvailable={true}
+            installIsAvailable={false}
         />)).toMatchSnapshot();
 });

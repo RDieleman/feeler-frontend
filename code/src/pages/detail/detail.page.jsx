@@ -17,7 +17,11 @@ class DetailPage extends Component {
     };
 
     async componentDidMount() {
-        await this.handleRetrieveBookInfo();
+        try{
+            await this.handleRetrieveBookInfo();
+        }catch (e){
+            console.log("Failed to retrieve book data");
+        }
     }
 
     handleRetrieveBookInfo = async () => {
