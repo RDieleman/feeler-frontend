@@ -25,7 +25,10 @@ class DetailPage extends Component {
     }
 
     handleRetrieveBookInfo = async () => {
-        const isbn = this.props.match.params.isbn;
+        const isbn = (this.props.match.params.isbn)?
+            this.props.match.params.isbn :
+            this.props.isbn;
+
         const book = await handleGetBook(isbn);
         this.setState({book: book})
     }

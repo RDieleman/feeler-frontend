@@ -6,5 +6,6 @@ import DetailPage from "./detail.page";
 it("Expect to render Detail page", () => {
     expect(shallow(
         <DetailPage
+            isbn="test"
         />)).toMatchSnapshot();
 });
