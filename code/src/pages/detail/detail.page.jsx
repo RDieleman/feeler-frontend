@@ -28,14 +28,14 @@ class DetailPage extends Component {
     handleRetrieveBookInfo = async () => {
         let isbn = "";
         try{
-            isbn = (this.props.match.params.isbn);
+            isbn = this.props.match.params.isbn;
         }
         catch (e){
             console.log("No isbn provided as path parameter.");
             isbn = this.props.isbn;
         }
         try{
-
+            console.log("Retrieving book:", this);
             const book = await handleGetBook(isbn);
             this.setState({book: book})
         }catch{

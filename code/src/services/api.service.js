@@ -11,9 +11,11 @@ import {User} from "../models/user";
  */
 
 export const handleGetBook = async (isbn) =>{
+    console.log("Retrieving book with isbn",isbn);
     return fetch( `${process.env.REACT_APP_API_URL}/book/${isbn}`,{
         method: 'GET',
         headers:{
+            'Accept': '*/*',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
@@ -105,6 +107,7 @@ export const handleGetMoods = async () =>{
     return fetch(`${process.env.REACT_APP_API_URL}/mood`,{
         method: 'GET',
         headers:{
+            'Accept': '*/*',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
@@ -119,6 +122,7 @@ export const handleGetUser = async (id) =>{
     return fetch(`${process.env.REACT_APP_API_URL}/user/${id}`,{
         method: 'GET',
         headers:{
+            'Accept': '*/*',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
@@ -137,6 +141,7 @@ export const handleExplore = async (mood, page) =>{
     return fetch(`${process.env.REACT_APP_API_URL}/explore/${mood}/${page}`,{
         method: 'GET',
         headers:{
+            'Accept': '*/*',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': `${process.env.REACT_APP_ORIGIN_URL}`
         }
