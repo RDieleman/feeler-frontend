@@ -17,20 +17,21 @@ class DetailPage extends Component {
     };
 
     async componentDidMount() {
-        try{
-            await this.handleRetrieveBookInfo();
-        }catch (e){
-            console.log("Failed to retrieve book data");
-        }
+        await this.handleRetrieveBookInfo();
+
     }
 
     handleRetrieveBookInfo = async () => {
-        const isbn = (this.props.match.params.isbn)?
-            this.props.match.params.isbn :
-            this.props.isbn;
+        try{
+            const isbn = (this.props.match.params.isbn)?
+                this.props.match.params.isbn :
+                this.props.isbn;
 
-        const book = await handleGetBook(isbn);
-        this.setState({book: book})
+            const book = await handleGetBook(isbn);
+            this.setState({book: book})
+        }catch{
+            console.log("Failed to retrieve book data");
+        }
     }
 
     getButtons = () => {
