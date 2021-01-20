@@ -28,8 +28,14 @@ class ExploreOverviewPage extends Component {
 
     handleGetNextPage = async () => {
         const page = this.state.page + 1;
+        let mood = "random";
+        try{
+            mood = this.props.match.params.mood;
+        }catch (e){
+            console.log("No mood provided as path parameter.")
+        }
 
-        const newBooks = await handleExplore(this.props.match.params.mood, page);
+        const newBooks = await handleExplore(mood, page);
 
         const books = [...this.state.books];
         books.push(...newBooks);
