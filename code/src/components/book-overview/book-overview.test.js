@@ -23,5 +23,7 @@ it("Expect to render Book Overview component", () =>{
         <BookOverview
             handleOnClick={() => console.log("Book clicked")}
             books={books}
-    />).length).toEqual(1);
+    />)).toMatchSnapshot();
 });
+
+
