@@ -28,7 +28,7 @@ class DetailPage extends Component {
     handleRetrieveBookInfo = async () => {
         let isbn = "";
         try{
-            isbn = (this.props.match.params);
+            isbn = (this.props.match.params.isbn);
         }
         catch (e){
             console.log("No isbn provided as path parameter.");
