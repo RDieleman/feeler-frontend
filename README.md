@@ -1,4 +1,4 @@
-# feeler-frontend
+# Feeler Frontend
 Frontend React PWA for the Feeler project, which provides a way for users to discover and track books.
 
 ## Available Scripts
